@@ -42,9 +42,9 @@ HELPABLE = {}
 
 
 async def start_bot():
-    print("[INFO]: STARTING BOT CLIENT")
+    print("[INFO]: BOT BAŞLADILDI")
     await app.start()
-    print("[INFO]: STARTING USERBOT CLIENT")
+    print("[INFO]: USERBOT BAŞLADILDI")
     await app2.start()
     for module in ALL_MODULES:
         imported_module = importlib.import_module(
@@ -75,7 +75,7 @@ async def start_bot():
         "+===============================================================+"
     )
     print(
-        "|                              WBB                              |"
+        "|                             AGA MİRZE                         |"
     )
     print(
         "+===============+===============+===============+===============+"
@@ -84,20 +84,20 @@ async def start_bot():
     print(
         "+===============+===============+===============+===============+"
     )
-    print(f"[INFO]: BOT STARTED AS {BOT_NAME}!")
-    print(f"[INFO]: USERBOT STARTED AS {USERBOT_NAME}!")
+    print(f"[INFO]: BOT BAŞLADILDI {BOT_NAME}!")
+    print(f"[INFO]: BOT BAŞLADILDI {USERBOT_NAME}!")
     restart_data = await clean_restart_stage()
     try:
-        print("[INFO]: SENDING ONLINE STATUS")
+        print("[INFO]: ONLINE STATUSUN GÖNDƏRİLMƏSİ")
         if restart_data:
             await app.edit_message_text(
                 restart_data["chat_id"],
                 restart_data["message_id"],
-                "**Restarted Successfully**",
+                "**Uğurla yenidən başladın**",
             )
 
         else:
-            await app.send_message(LOG_GROUP_ID, "Bot started!")
+            await app.send_message(LOG_GROUP_ID, "Bot Başladıldı!")
     except Exception:
         pass
     await idle()
