@@ -101,7 +101,7 @@ async def start_bot():
     except Exception:
         pass
     await idle()
-    print("[INFO]: STOPPING BOT AND CLOSING AIOHTTP SESSION")
+    print("[INFO]: BOTUN DAYANDIRILMASI VƏ AIOHTTP SESSİYASININ QAPANILMASI")
     await aiohttpsession.close()
 
 
@@ -109,35 +109,39 @@ home_keyboard_pm = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                text="Commands ❓", callback_data="bot_commands"
+                text="kamandalar ❓", callback_data="bot_commands"
             ),
             InlineKeyboardButton(
-                text="Repo 🛠",
-                url="https://github.com/thehamkercat/WilliamButcherBot",
+                text="Sahibim 👱‍♂️ ",
+                url="https://t.me/Ayxxan",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="System Stats 🖥",
+                text="Sistem Statistikaları 🖥",
                 callback_data="stats_callback",
             ),
             InlineKeyboardButton(
-                text="Support 👨", url="http://t.me/WBBSupport"
+                text="Dəstək 👨", url="http://t.me/nakhidchat"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="Add Me To Your Group 🎉",
+                text="Məni Qrupa Əlavə Et ➕",
                 url=f"http://t.me/{BOT_USERNAME}?startgroup=new",
             )
         ],
     ]
+   InlineKeyboardButton(
+                text="Tərcümə 👽", url="http://t.me/TheZahid"
 )
+    ],
+       ]
 
 home_text_pm = (
-    f"Hey there! My name is {BOT_NAME}. I can manage your "
-    + "group with lots of useful features, feel free to "
-    + "add me to your group."
+    f"Salam Dostum! Mənim adım {BOT_NAME}. Sənin qrupunu idarə edə bilərəm "
+    + "çox faydalı xüsusiyyətlərə malik botam "
+    + "məni öz qrupuna əlavə et."
 )
 
 
@@ -148,27 +152,27 @@ async def help_command(_, message):
             [
                 [
                     InlineKeyboardButton(
-                        text="Help ❓",
+                        text="Kömək ❓",
                         url=f"t.me/{BOT_USERNAME}?start=help",
                     ),
                     InlineKeyboardButton(
-                        text="Repo 🛠",
-                        url="https://github.com/thehamkercat/WilliamButcherBot",
+                        text="Sahibim 👱‍♂️",
+                        url="https://t.me/Ayxxan",
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        text="System Stats 💻",
+                        text="Sistem Statistikaları 💻",
                         callback_data="stats_callback",
                     ),
                     InlineKeyboardButton(
-                        text="Support 👨", url="t.me/WBBSupport"
+                        text="Dəstək 👨", url="t.me/Nakhidchat"
                     ),
                 ],
             ]
         )
         return await message.reply(
-            "Pm Me For More Details.", reply_markup=keyboard
+            "Ətraflı məlumat üçün Pm.", reply_markup=keyboard
         )
     await message.reply(
         home_text_pm,
@@ -182,10 +186,10 @@ async def help_parser(name, keyboard=None):
             paginate_modules(0, HELPABLE, "help")
         )
     return (
-        """Hello {first_name}, My name is {bot_name}.
-I'm a group management bot with some useful features.
-You can choose an option below, by clicking a button.
-Also you can ask anything in Support Group.
+        """Salam {first_name}, Mənim adım {bot_name}.
+Mən bir çox xüsusiyyətlərə malik olan qrup idarə botuyam.
+Bir düyməni basaraq aşağıdan bir seçim seçə bilərsiniz.
+Həm də Dəstək Qrupundan istədiyiniz hər şeyi soruşa bilərsiniz.
 """.format(
             first_name=name,
             bot_name=BOT_NAME,
@@ -225,20 +229,20 @@ async def help_button(client, query):
     back_match = re.match(r"help_back", query.data)
     create_match = re.match(r"help_create", query.data)
     top_text = f"""
-Hello {query.from_user.first_name}, My name is {BOT_NAME}.
-I'm a group management bot with some usefule features.
-You can choose an option below, by clicking a button.
-Also you can ask anything in Support Group.
+Salam {query.from_user.first_name}, Mənim adım {BOT_NAME}.
+Mən bir çox faydalı xüsusiyyətlərə malik qrup idarə botuyam.
+Bir düyməni basaraq aşağıdan bir seçim seçə bilərsiniz.
+Həm də Dəstək Qrupundan istədiyiniz hər şeyi soruşa bilərsiniz.
 
-General command are:
- - /start: Start the bot
- - /help: Give this message
+Ümumi əmrlər:
+ - /start: botu başlat
+ - /help: kömək menusunu aç
  """
     if mod_match:
         module = mod_match.group(1)
         text = (
             "{} **{}**:\n".format(
-                "Here is the help for", HELPABLE[module].__MODULE__
+                "kömək budur", HELPABLE[module].__MODULE__
             )
             + HELPABLE[module].__HELP__
         )
@@ -249,7 +253,7 @@ General command are:
                 [
                     [
                         InlineKeyboardButton(
-                            "back", callback_data="help_back"
+                            "çıx", callback_data="help_back"
                         )
                     ]
                 ]
