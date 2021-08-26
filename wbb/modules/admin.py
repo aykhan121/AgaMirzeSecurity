@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2021 TheHamkerCat
+Copyright (c) 2021 Agamirzesecurity
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -36,27 +36,27 @@ from wbb.utils.functions import (extract_user,
                                  time_converter)
 
 __MODULE__ = "Admin"
-__HELP__ = """/ban - Ban A User
-/dban - Delete the replied message banning its sender
-/tban - Ban A User For Specific Time
-/unban - Unban A User
-/warn - Warn A User
-/dwarn - Delete the replied message warning its sender
-/rmwarn - Remove 1 Warning Of A User
-/rmwarns - Remove All Warning of A User
-/warns - Show Warning Of A User
-/kick - Kick A User
-/dkick - Delete the replied message kicking its sender
-/purge - Purge Messages
-/del - Delete Replied Message
-/promote - Promote A Member
-/demote - Demote A Member
-/pin - Pin A Message
-/mute - Mute A User
-/tmute - Mute A User For Specific Time
-/unmute - Unmute A User
-/ban_ghosts - Ban Deleted Accounts
-/report | @admins - Report A Message To Admins."""
+__HELP__ = """/ban - İstifadəçini ban edin
+/dban - Mesajı silib ban atın
+/tban - Bir müddətlik ban atın
+/unban - Banını açın
+/warn - İstifadəçiyə xəbərdarlıq edin
+/dwarn - Mesajı silib ban atar
+/rmwarn - İstifadəçinin bir warn-nı silin
+/rmwarns - İstifadəçinin bütün warn-larını silin
+/warns - İstifadəçinin bütün warn-larına baxın
+/kick - İstifadəçini qrupdan atın
+/dkick - İstifadəçinin mesajını silib qrupdan atın
+/purge - Mesajları təmizləyin
+/del - Cavab verdiyiniz mesajı silin
+/promote - Cavab verdiyiniz adama yetki verin
+/demote - Cavab verdiyiniz adamın yetkisini alın
+/pin - Cavab verdiyiniz mesajı sabitləyin
+/mute - Cavab verdiyiniz adamı səssizə
+/tmute - Cavab verdiyiniz adamı bir müddət səssizə alar
+/unmute - İstifadəçinin səsini açar
+/ban_ghosts - Silinmiş hesabları banlayar
+/report | @admins - Mesajı adminlərə şikayət edin."""
 
 
 async def member_permissions(chat_id: int, user_id: int):
@@ -149,7 +149,7 @@ async def purgeFunc(client, message: Message):
 
     if not message.reply_to_message:
         return await message.reply_text(
-            "Reply to a message to purge from."
+            "."
         )
 
     chat_id = message.chat.id
